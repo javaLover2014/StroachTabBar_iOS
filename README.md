@@ -32,12 +32,12 @@ This is an instruction of how to use *StroachTabBarController* in the **Storyboa
 
    ![Add](./images/Add.tiff)
 
-3. In the App Delegate change cast the windows.rootViewController to an instance of StroachTabBarController and add a StroachTabBarItem for every connected view controller.
+3. In the App Delegate cast the window.rootViewController to an instance of StroachTabBarController and add a StroachTabBarItem for every connected view controller.
 
    ```swift
    if let tabBarController = window?.rootViewController as? StroachTabBarController {
    	let itemA = StroachTabBarItem(image: UIImage(named: "imageA")!);
-       let itemB = StroachTabBarItem(image: UIImage(named: "imageB")!);
+    let itemB = StroachTabBarItem(image: UIImage(named: "imageB")!);
                
        tabBarController.stroachTabBar.items = [itemA, itemB];
    }
