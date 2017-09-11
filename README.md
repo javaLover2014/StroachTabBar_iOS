@@ -1,14 +1,17 @@
 ## StroachTabBar for iOS
 
+![Version](https://cocoapod-badges.herokuapp.com/v/StroachTabBar_iOS/badge.png)
+![License](https://cocoapod-badges.herokuapp.com/l/StroachTabBar_iOS/badge.(png|svg))
+
 The StroachTabBar is a modern TabBar with a unique animation written in Swift. It is heavily inspired by [BATabBarController](https://github.com/antiguab/BATabBarController) but its implementation is more user-friendly. Because the StroachTabBarController is a subclass of UITabBarController it can be used without major code changes.
 
 ### Installation
 
-StroachTabBarController is available through [CocoaPods](). To install it, simply add the following line to your Podfile:
+StroachTabBarController is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 use_frameworks!
-pod 'StroachTabBar_iOS'
+pod 'StroachTabBar_iOS', '~> 1.0.0-beta'
 ```
 
 Run
