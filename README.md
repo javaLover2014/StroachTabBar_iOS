@@ -20,7 +20,7 @@ pod install
  and **import** it in your source code.
 
 ```swift
-import StroachTabBarController
+import StroachTabBar_iOS
 ```
 
 ### Usage 
@@ -36,10 +36,9 @@ This is an instruction of how to use *StroachTabBarController* in the **Storyboa
 
    ```swift
    if let tabBarController = window?.rootViewController as? StroachTabBarController {
-   	let itemA = StroachTabBarItem(image: UIImage(named: "imageA")!);
+    let itemA = StroachTabBarItem(image: UIImage(named: "imageA")!);
     let itemB = StroachTabBarItem(image: UIImage(named: "imageB")!);
-               
-       tabBarController.stroachTabBar.items = [itemA, itemB];
+    tabBarController.stroachTabBar.items = [itemA, itemB];
    }
    ```
 
