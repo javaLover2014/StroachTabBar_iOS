@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80E1B08B1F67094000613579 /* StroachTabBar_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E1B07D1F67094000613579 /* StroachTabBar_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80E1B0971F670A9200613579 /* StroachTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0941F670A9200613579 /* StroachTabBar.swift */; };
 		80E1B0981F670A9200613579 /* StroachTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0951F670A9200613579 /* StroachTabBarController.swift */; };
 		80E1B0991F670A9200613579 /* StroachTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0961F670A9200613579 /* StroachTabBarItem.swift */; };
@@ -15,7 +14,6 @@
 
 /* Begin PBXFileReference section */
 		80E1B07A1F67094000613579 /* StroachTabBar_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StroachTabBar_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		80E1B07D1F67094000613579 /* StroachTabBar_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StroachTabBar_iOS.h; sourceTree = "<group>"; };
 		80E1B07E1F67094000613579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E1B0941F670A9200613579 /* StroachTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroachTabBar.swift; sourceTree = "<group>"; };
 		80E1B0951F670A9200613579 /* StroachTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroachTabBarController.swift; sourceTree = "<group>"; };
@@ -55,7 +53,6 @@
 				80E1B0941F670A9200613579 /* StroachTabBar.swift */,
 				80E1B0951F670A9200613579 /* StroachTabBarController.swift */,
 				80E1B0961F670A9200613579 /* StroachTabBarItem.swift */,
-				80E1B07D1F67094000613579 /* StroachTabBar_iOS.h */,
 				80E1B07E1F67094000613579 /* Info.plist */,
 			);
 			path = StroachTabBar_iOS;
@@ -68,7 +65,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80E1B08B1F67094000613579 /* StroachTabBar_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
