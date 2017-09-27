@@ -7,11 +7,11 @@ The StroachTabBar is a modern TabBar with a unique animation written in Swift. I
 
 ### Installation
 
-StroachTabBarController is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+StroachTabBar is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 use_frameworks!
-pod 'StroachTabBar_iOS', '~> 1.0.0-beta'
+pod 'StroachTabBar_iOS', '~> 1.0.1'
 ```
 
 Run
