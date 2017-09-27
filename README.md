@@ -11,7 +11,7 @@ StroachTabBar is available through [CocoaPods](https://cocoapods.org). To instal
 
 ```ruby
 use_frameworks!
-pod 'StroachTabBar_iOS', '~> 1.0.1'
+pod 'StroachTabBar_iOS', '~> 1.0.2'
 ```
 
 Run

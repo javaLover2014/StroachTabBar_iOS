@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "StroachTabBar_iOS"
-  spec.version = "1.0.1"
+  spec.version = "1.0.2"
 
   spec.homepage = "https://github.com/lukastruemper/StroachTabBar_iOS"
   spec.summary = "A modern TabBar written in Swift."
@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, '10.3'
   spec.ios.deployment_target = '10.3'
 
-  spec.source = { :git => "https://github.com/lukastruemper/StroachTabBar_iOS.git", :tag => 'v1.0.1' }
+  spec.source = { :git => "https://github.com/lukastruemper/StroachTabBar_iOS.git", :tag => 'v1.0.2' }
 
   spec.source_files = "StroachTabBar_iOS/*.swift"
 end
