@@ -24,10 +24,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
 import UIKit
 
 public class StroachTabBarController : UITabBarController {
+    
+    // MARK: Public properties
     
     public private(set) var stroachTabBar: StroachTabBar;
     
@@ -40,6 +41,8 @@ public class StroachTabBarController : UITabBarController {
             self.stroachTabBar.selectedIndex = newValue;
         }
     }
+    
+    // MARK: Initializer
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.stroachTabBar = StroachTabBar();
@@ -57,6 +60,8 @@ public class StroachTabBarController : UITabBarController {
         self.stroachTabBar.delegate = self;
     }
     
+    // MARK: Controller's lifecycle
+    
     override public func viewDidLoad() {
         super.viewDidLoad();
         
@@ -68,6 +73,7 @@ public class StroachTabBarController : UITabBarController {
         super.viewDidLayoutSubviews();
         
         self.stroachTabBar.frame = self.tabBar.bounds;
+        self.stroachTabBar.layoutSubviews();
         
         for view in self.tabBar.subviews {
             view.removeFromSuperview();

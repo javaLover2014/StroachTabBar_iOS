@@ -24,41 +24,61 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
 import UIKit
 
 public class StroachTabBar: UIView {
     
+    // MARK: Static variables
+    
+    static let padding: CGFloat = 5.0;
+    
+    // MARK: Public properties
+    
     public var delegate: StroachTabBarDelegate?;
     
-    public private(set) var currentItem: StroachTabBarItem?;
+    public private(set) var currentItem: StroachTabBarItem? {
+        didSet {
+            self.currentItem?.tintColor = self.selectedColor;
+            oldValue?.tintColor = self.unselectedColor;
+        }
+    }
     
     public var selectedIndex: Int = 0 {
-        didSet {
-            if (selectedIndex != oldValue && currentItem != nil && items != nil) {
-                self.transitionToItem(from: currentItem!, to: items![selectedIndex], completion: {
-                    self.currentItem = self.items![self.selectedIndex];
-                });
+        willSet {
+            if (newValue >= 0 && selectedIndex != newValue && currentItem != nil && items != nil && newValue < items!.count) {
+                
+                if (self.superview == nil) {
+                    // StroachTabBar does not have its frame, animations will behave wrong.
+                    self.currentItem = self.items![newValue];
+                } else {
+                    // StroachTabBar has its frame, animations will work properly.
+                    self.transitionToItem(from: currentItem!, to: items![newValue], completion: {
+                        self.currentItem = self.items![newValue];
+                    });
+                }
             }
         }
     }
     
     public var items: [StroachTabBarItem]? {
         didSet {
+            // 1. Reset view.
             for view in subviews {
                 view.removeFromSuperview();
             }
             currentItem = nil;
+            self.selectedIndex = 0;
             
-            if let barItems = items {
-                for item in barItems {
+            // 2. Add items if needed.
+            if (items != nil && items!.count > 0) {
+                for item in items! {
                     item.addTarget(self, action: #selector(didSelectItem(sender:)), for: .touchUpInside);
                     item.tintColor = self.unselectedColor;
                     addSubview(item);
                 }
+                self.layoutIfNeeded();
                 
-                currentItem = barItems.count > 0 ? barItems[0] : nil;
-                currentItem?.tintColor = self.selectedColor;
+                currentItem = items![0];
             }
         }
     }
@@ -91,27 +111,68 @@ public class StroachTabBar: UIView {
         }
     }
     
+    public var borderColor: CGColor? {
+        get {
+            return self.topBorder.borderColor;
+        }
+        set {
+            self.topBorder.borderColor = newValue;
+        }
+    }
+    
+    public var borderWidth: CGFloat {
+        get {
+            return self.topBorder.borderWidth;
+        }
+        set {
+            self.topBorder.borderWidth = newValue;
+        }
+    }
+    
+    // MARK: Private properties
+    
+    private var topBorder: CALayer;
+    
     // MARK: Initializer
     
     public override init(frame: CGRect) {
+        self.topBorder = CALayer();
+        
         super.init(frame: frame);
+        
+        self.layer.addSublayer(self.topBorder);
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        self.topBorder = CALayer();
+        
         super.init(coder: aDecoder);
+        
+        self.layer.addSublayer(self.topBorder);
     }
+    
+    // MARK: View's lifecycle
     
     public override func layoutSubviews() {
         super.layoutSubviews();
+        
+        self.topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.borderWidth);
         
         if items != nil {
             let width = self.bounds.width/CGFloat(items!.count);
             for i in 0..<items!.count {
                 let item = items![i];
                 
-                item.frame = CGRect.init(x: CGFloat(i) * width + (width - self.bounds.height + 10.0)/2, y: CGFloat(5.0), width: self.bounds.height - 10, height: self.bounds.height - 10);
+                item.frame = CGRect(x: CGFloat(i) * width + (width - self.bounds.height + StroachTabBar.padding * 2)/2, y: StroachTabBar.padding, width: self.bounds.height - StroachTabBar.padding * 2, height: self.bounds.height - StroachTabBar.padding * 2);
             }
         }
+    }
+    
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview();
+        
+        // Now StroachTabBar has its frame, layer (outline) can be shown.
+        self.currentItem?.showOutline();
     }
     
     // MARK: Private functions
@@ -120,14 +181,14 @@ public class StroachTabBar: UIView {
         let index = self.items!.index(of: sender)!;
         self.selectedIndex = index;
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(350), execute: {
             self.delegate?.didSelectItem(tabBar: self, index: index);
         })
     }
     
     private func transitionToItem(from: StroachTabBarItem, to: StroachTabBarItem, completion: (() -> Void)?) {
-        self.layoutIfNeeded();
-
+        self.layoutSubviews();
+        
         let animatingTabTransitionLayer = CAShapeLayer();
         
         let animatingTabTransitionBezierPath = UIBezierPath();
@@ -138,28 +199,27 @@ public class StroachTabBar: UIView {
         let clockwise = self.items!.index(of: to)! < self.items!.index(of: from)!;
 
         animatingTabTransitionBezierPath.addArc(withCenter: from.center
-            , radius: from.imageView!.frame.width/2.0 + 7.5, startAngle: CGFloat.pi/2.0, endAngle: CGFloat.pi, clockwise: clockwise);
+            , radius: from.imageView!.frame.width/2.0 + StroachTabBarItem.padding, startAngle: CGFloat.pi/2.0, endAngle: CGFloat.pi, clockwise: clockwise);
         animatingTabTransitionBezierPath.addArc(withCenter: from.center
-            , radius: from.imageView!.frame.width/2.0 + 7.5, startAngle: CGFloat.pi, endAngle: CGFloat.pi/2.0, clockwise: clockwise);
+            , radius: from.imageView!.frame.width/2.0 + StroachTabBarItem.padding, startAngle: CGFloat.pi, endAngle: CGFloat.pi/2.0, clockwise: clockwise);
         
         //traveling from one item to the next
-        let origin = from.convert(CGPoint(x: from.imageView!.frame.midX, y: from.imageView!.frame.maxY + 7.5), to: self);
-        let destination = to.convert(CGPoint(x: to.imageView!.frame.midX, y: to.imageView!.frame.maxY + 7.5), to: self);
+        let origin = from.convert(CGPoint(x: from.imageView!.frame.midX, y: from.imageView!.frame.maxY + StroachTabBarItem.padding), to: self);
+        let destination = to.convert(CGPoint(x: to.imageView!.frame.midX, y: to.imageView!.frame.maxY + StroachTabBarItem.padding), to: self);
         animatingTabTransitionBezierPath.move(to: origin);
         animatingTabTransitionBezierPath.addLine(to: destination);
     
         animatingTabTransitionBezierPath.addArc(withCenter: to.center
-            , radius: to.imageView!.frame.width/2.0 + 7.5, startAngle: CGFloat.pi/2.0, endAngle: CGFloat.pi, clockwise: clockwise);
+            , radius: to.imageView!.frame.width/2.0 + StroachTabBarItem.padding, startAngle: CGFloat.pi/2.0, endAngle: CGFloat.pi, clockwise: clockwise);
         animatingTabTransitionBezierPath.addArc(withCenter: to.center
-            , radius: to.imageView!.frame.width/2.0 + 7.5, startAngle: CGFloat.pi, endAngle: CGFloat.pi/2.0, clockwise: clockwise);
+            , radius: to.imageView!.frame.width/2.0 + StroachTabBarItem.padding, startAngle: CGFloat.pi, endAngle: CGFloat.pi/2.0, clockwise: clockwise);
         
-        //determining total length to see where the animation will begin and end
-        let circumference = 2.0 * CGFloat.pi * (to.imageView!.frame.width/2.0 + 7.5);
+        let circumference = 2.0 * CGFloat.pi * (to.imageView!.frame.width/2.0 + StroachTabBarItem.padding);
         let distanceBetweenTabs = fabs(origin.x - destination.x);
         let totalLength = 2.0 * circumference + distanceBetweenTabs;
         
         let leadingAnimation = CABasicAnimation(keyPath: "strokeEnd");
-        leadingAnimation.duration = 0.7;
+        leadingAnimation.duration = 0.6;
         leadingAnimation.fromValue = 0;
         leadingAnimation.toValue = 1;
         leadingAnimation.isRemovedOnCompletion = false;
@@ -191,13 +251,13 @@ public class StroachTabBar: UIView {
             
             animatingTabTransitionLayer.removeFromSuperlayer();
             animatingTabTransitionLayer.removeAllAnimations();
+            
+            completion?();
         });
         animatingTabTransitionLayer.add(transitionAnimationGroup, forKey: nil);
         CATransaction.commit();
         
         self.layer.addSublayer(animatingTabTransitionLayer);
-        
-        completion?();
     }
     
 }

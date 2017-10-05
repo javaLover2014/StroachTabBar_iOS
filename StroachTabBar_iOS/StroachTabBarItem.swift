@@ -24,15 +24,24 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
 import UIKit
 
 public class StroachTabBarItem: UIButton {
     
+    // MARK: Static variables
+    
+    static let padding: CGFloat = 7.5;
+    
+    // MARK: Private properties
+    
     private var outerCircleLayer: CAShapeLayer?;
+    
+    // MARK: Initializer
     
     public init(image: UIImage) {
         super.init(frame: CGRect.zero);
+        
+        self.adjustsImageWhenHighlighted = false;
         self.setImage(image.withRenderingMode(.alwaysTemplate), for: .normal);
         self.imageView?.contentMode = UIViewContentMode.scaleAspectFit;
     }
@@ -41,14 +50,18 @@ public class StroachTabBarItem: UIButton {
         super.init(coder: aDecoder);
     }
     
+    // MARK: View's lifecycle
+    
     public override func layoutSubviews() {
         super.layoutSubviews();
         
         self.backgroundColor = UIColor.clear;
         
         self.titleLabel?.isHidden = true;
-        self.imageView?.frame = CGRect.init(x: 7.5, y: 7.5, width: self.bounds.width - 15, height: self.bounds.height - 15.0);
+        self.imageView?.frame = CGRect.init(x: StroachTabBarItem.padding, y: StroachTabBarItem.padding, width: self.bounds.width - StroachTabBarItem.padding * 2, height: self.bounds.height - StroachTabBarItem.padding * 2);
     }
+    
+    // MARK: Animations
     
     func showOutline() {
         self.layoutIfNeeded();
@@ -57,7 +70,7 @@ public class StroachTabBarItem: UIButton {
         
         self.outerCircleLayer = CAShapeLayer();
         let outerCircleBezierPath = UIBezierPath();
-        let outlineRadius = (self.imageView!.frame.width + 15)/2.0;
+        let outlineRadius = (self.imageView!.frame.width + StroachTabBarItem.padding * 2)/2.0;
         
         outerCircleBezierPath.addArc(withCenter: self.imageView!.center, radius: outlineRadius, startAngle: CGFloat.pi/2.0, endAngle: CGFloat.pi, clockwise: false);
         outerCircleBezierPath.addArc(withCenter: self.imageView!.center, radius: outlineRadius, startAngle: CGFloat.pi, endAngle: CGFloat.pi/2.0, clockwise: false);

@@ -7,21 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AD204318183FB906205C8CC /* Pods_StroachTabBar_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDFFB94DB41934F31181831 /* Pods_StroachTabBar_iOS.framework */; };
 		80E1B0971F670A9200613579 /* StroachTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0941F670A9200613579 /* StroachTabBar.swift */; };
 		80E1B0981F670A9200613579 /* StroachTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0951F670A9200613579 /* StroachTabBarController.swift */; };
 		80E1B0991F670A9200613579 /* StroachTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1B0961F670A9200613579 /* StroachTabBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BDFFB94DB41934F31181831 /* Pods_StroachTabBar_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StroachTabBar_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E1B07A1F67094000613579 /* StroachTabBar_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StroachTabBar_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E1B07E1F67094000613579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E1B0941F670A9200613579 /* StroachTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroachTabBar.swift; sourceTree = "<group>"; };
 		80E1B0951F670A9200613579 /* StroachTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroachTabBarController.swift; sourceTree = "<group>"; };
 		80E1B0961F670A9200613579 /* StroachTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroachTabBarItem.swift; sourceTree = "<group>"; };
-		BAA3531AC8958995948512EA /* Pods-StroachTabBar_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StroachTabBar_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-StroachTabBar_iOS/Pods-StroachTabBar_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		E599FDEA4E87E01ADC54A92F /* Pods-StroachTabBar_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StroachTabBar_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StroachTabBar_iOS/Pods-StroachTabBar_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +25,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AD204318183FB906205C8CC /* Pods_StroachTabBar_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +34,6 @@
 		41ACF6413F5768BDB1C62B76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0BDFFB94DB41934F31181831 /* Pods_StroachTabBar_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -49,7 +43,6 @@
 			children = (
 				80E1B07C1F67094000613579 /* StroachTabBar_iOS */,
 				80E1B07B1F67094000613579 /* Products */,
-				E958447A820F07CB68B2096C /* Pods */,
 				41ACF6413F5768BDB1C62B76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -73,15 +66,6 @@
 			path = StroachTabBar_iOS;
 			sourceTree = "<group>";
 		};
-		E958447A820F07CB68B2096C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E599FDEA4E87E01ADC54A92F /* Pods-StroachTabBar_iOS.debug.xcconfig */,
-				BAA3531AC8958995948512EA /* Pods-StroachTabBar_iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -99,12 +83,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80E1B08E1F67094000613579 /* Build configuration list for PBXNativeTarget "StroachTabBar_iOS" */;
 			buildPhases = (
-				92E06269E0C30781E7BEE721 /* [CP] Check Pods Manifest.lock */,
 				80E1B0751F67094000613579 /* Sources */,
 				80E1B0761F67094000613579 /* Frameworks */,
 				80E1B0771F67094000613579 /* Headers */,
 				80E1B0781F67094000613579 /* Resources */,
-				8A0C0593CAEA72D248F67FD4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,13 +104,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Lukas Trümper";
 				TargetAttributes = {
 					80E1B0791F67094000613579 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3UCL5P6F53;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -160,42 +142,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8A0C0593CAEA72D248F67FD4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StroachTabBar_iOS/Pods-StroachTabBar_iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92E06269E0C30781E7BEE721 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StroachTabBar_iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		80E1B0751F67094000613579 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,7 +166,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -228,7 +176,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -274,7 +226,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -282,7 +236,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -313,7 +271,6 @@
 		};
 		80E1B08F1F67094000613579 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E599FDEA4E87E01ADC54A92F /* Pods-StroachTabBar_iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -329,13 +286,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		80E1B0901F67094000613579 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAA3531AC8958995948512EA /* Pods-StroachTabBar_iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -350,7 +307,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.lukastruemper.StroachTabBar-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

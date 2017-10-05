@@ -11,7 +11,7 @@ StroachTabBar is available through [CocoaPods](https://cocoapods.org). To instal
 
 ```ruby
 use_frameworks!
-pod 'StroachTabBar_iOS', '~> 1.0.2'
+pod 'StroachTabBar_iOS', '~> 1.1'
 ```
 
 Run
@@ -28,7 +28,7 @@ import StroachTabBar_iOS
 
 ### Usage
 
-This is an instruction of how to use *StroachTabBarController* in the **Storyboard**.
+This is an instruction of how to use *StroachTabBar* in the **Storyboard**.
 1. Add a native UITabBarController to the storyboard as the initial view controller and establish relationships with its view controllers.
 
 2. Change the class of the UITabBarController to StroachTabBarController.
@@ -51,6 +51,9 @@ This is an instruction of how to use *StroachTabBarController* in the **Storyboa
    tabBarController.stroachTabBar.backgroundColor = UIColor.black;
    tabBarController.stroachTabBar.selectedColor = UIColor.orange;
    tabBarController.stroachTabBar.unselectedColor = UIColor.darkGray;
+
+   tabBarController.stroachTabBar.borderColor = UIColor.darkGray.cgColor;
+   tabBarController.stroachTabBar.borderWidth = 0.5;
    ```
 
 ### Contact
