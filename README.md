@@ -5,6 +5,8 @@
 
 The StroachTabBar is a modern TabBar with a unique animation written in Swift. It is heavily inspired by [BATabBarController](https://github.com/antiguab/BATabBarController) but its implementation is more user-friendly. Because the StroachTabBarController is a subclass of UITabBarController it can be used without major code changes.
 
+![Preview](images/Preview.gif)
+
 ### Installation
 
 StroachTabBar is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
