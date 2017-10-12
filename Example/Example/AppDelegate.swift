@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let itemC = StroachTabBarItem(image: UIImage(named: "user")!);
             tabBarController.stroachTabBar.items = [itemA, itemB, itemC];
             
-            tabBarController.stroachTabBar.backgroundColor = UIColor(red: 41.0/255.0, green: 48.0/255.0, blue: 58.0/255.0, alpha: 1.0);
+            tabBarController.stroachTabBar.backgroundColor = UIColor(red: 252.0/255.0, green: 252.0/255.0, blue: 252.0/255.0, alpha: 1.0);
             tabBarController.stroachTabBar.selectedColor = UIColor(red: 252.0/255.0, green: 76.0/255.0, blue: 2.0/255.0, alpha: 1.0);
-            tabBarController.stroachTabBar.unselectedColor = UIColor.darkGray;
+            tabBarController.stroachTabBar.unselectedColor = UIColor(red: 41.0/255.0, green: 48.0/255.0, blue: 58.0/255.0, alpha: 1.0);
         
-            tabBarController.stroachTabBar.borderColor = UIColor.darkGray.cgColor;
+            tabBarController.stroachTabBar.borderColor = UIColor(red: 41.0/255.0, green: 48.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor;
             tabBarController.stroachTabBar.borderWidth = 0.5;
             
         }
